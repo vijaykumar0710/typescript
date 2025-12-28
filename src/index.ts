@@ -41,4 +41,30 @@ let user:UserType = {
   age: 25,
   lastName:"Kumar",
 }
-greet2(user);
+//greet2(user);
+
+interface User1{
+  name: string,
+  age: number,
+  address: {
+    city: string,
+    country: string,
+    pincode:number
+  }
+}
+
+let user1:User1 = {
+  name: "Chalu",
+  age: 23,
+  address: {
+    city: "Chandigarh",
+    country: "India",
+    pincode:1234
+  }
+}
+
+function isLegal(user1: User1):boolean {
+  return user1.age >= 18;
+}
+
+console.log(user1);
