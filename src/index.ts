@@ -23,4 +23,18 @@ function log() {
 let greet1=() => {
   console.log("Hi,There"); 
 }
-greet1();
+//greet1();
+
+function greet2(user: {
+  name: string,
+  age:number
+}) {
+  console.log(user.name);
+}
+
+let user = {
+  name: "Vijay",
+  age: 25
+}
+
+greet2(user);
