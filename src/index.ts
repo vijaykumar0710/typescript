@@ -43,14 +43,19 @@ let user:UserType = {
 }
 //greet2(user);
 
+interface Address{
+   city?: string,
+    country?: string,
+    pincode?:number
+}
 interface User1{
   name: string,
   age: number,
-  address: {
-    city: string,
-    country: string,
-    pincode:number
-  }
+  address?: Address
+}
+
+interface office{
+  address:Address
 }
 
 let user1:User1 = {
@@ -63,8 +68,32 @@ let user1:User1 = {
   }
 }
 
+let user2: User1 = {
+  name: "Raman",
+  age: 22,
+  address: {
+    pincode:8765
+  }
+}
+
 function isLegal(user1: User1):boolean {
   return user1.age >= 18;
 }
 
-console.log(user1);
+//console.log(isLegal(user1));
+
+interface People{
+  name: string,
+  age: number,
+  greet: ()=> string,
+}
+
+let person: People = {
+  name: "TALU",
+  age: 26,
+  greet: ()=>{
+    return "hello";
+  }
+}
+
+console.log(person.greet());
