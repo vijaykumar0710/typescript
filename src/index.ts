@@ -25,16 +25,20 @@ let greet1=() => {
 }
 //greet1();
 
-function greet2(user: {
-  name: string,
+// ---- Interfaces---- //
+interface UserType{
+  firstName: string,
+  lastName: string,
   age:number
-}) {
-  console.log(user.name);
 }
 
-let user = {
-  name: "Vijay",
-  age: 25
+function greet2(user:UserType) {
+  console.log(user.firstName);
 }
 
+let user:UserType = {
+  firstName: "BHALU",
+  age: 25,
+  lastName:"Kumar",
+}
 greet2(user);
