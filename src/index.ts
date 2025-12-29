@@ -116,18 +116,67 @@
 
 //  let user3 = new Manager("John", 30);
 
-interface User{
+// interface User{
+//   name: string;
+//   age: number;
+//   isLegal(): boolean;
+// }
+
+// class Manager implements User{
+//   constructor(public name:string,public age:number) {}
+//   isLegal(): boolean {
+//     return this.age >= 18;
+//   }
+// }
+
+// const m = new Manager("TULLU", 25);
+// console.log(m.age);
+
+// ------Types----- //
+
+// ---- Intersection--- // Think on the basis of Employee and manager (outer thing) for both intersection and union
+type Employee = {
   name: string;
-  age: number;
-  isLegal(): boolean;
+  startDate: string;
 }
 
-class Manager implements User{
-  constructor(public name:string,public age:number) {}
-  isLegal(): boolean {
-    return this.age >= 18;
-  }
+type Manager = {
+  name: string;
+  dapartment: string;
 }
 
-const m = new Manager("TULLU", 25);
-console.log(m.age);
+//type teamLead = Employee & Manager; // means must have employee and manager properties
+
+let e: Employee={
+  name: "BHALU",
+  startDate: "01-02-2025",
+}
+
+let m: Manager = {
+  name: "CHALU",
+  dapartment:"Electricity",
+}
+
+// let t: teamLead = {
+//   name: "MALU",
+//   startDate: "02-03-2021",
+//   dapartment:"Mechanical",
+// }
+
+// --- Union ---- // must have either Manager(entire properties) OR Employee(entire properties) and can have both
+type teamLead = Employee | Manager;
+
+let t: teamLead = {
+  name: "MALU", // entire Employee
+  startDate: "02-03-2021",
+  //-- OR --// entire manager
+  /*
+  name: "MALU",
+  dapartment:"Mechanical",
+   */
+
+  // --- OR ---// both properties
+    // name: "MALU",
+   //  startDate: "02-03-2021",
+  //   dapartment:"Mechanical",
+}
